@@ -1,5 +1,10 @@
 # Compiled
 *.elc
+*.bin
+*.list
+*.d
+*.o
+
 
 # Packaging
 .cask
@@ -9,3 +14,7 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+#Useless Folder
+/.metadata
+/.settings
