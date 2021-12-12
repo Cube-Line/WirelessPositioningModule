@@ -26,6 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "oled.h"
 
 /* USER CODE END Includes */
 
@@ -46,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t Buff_Store[] ={0x55,0xaa};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,7 +94,19 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  OLED_Init();
+//   OLED_WR_Byte(0x55, 0x00);
+	  HAL_GPIO_WritePin(LED_LINK_GPIO_Port, LED_LINK_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_NET_GPIO_Port, LED_NET_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_GPS_GPIO_Port, LED_GPS_Pin, GPIO_PIN_SET);
+//  OLED_Clear();
+//   OLED_ShowNum(16, 16, 0, 1, 16);
+//   OLED_Refresh_Gram(); //更新显示
+					   //   OLED_Fill(16, 16, 32, 32, 1);
+//   OLED_Display_On();
+//  HAL_I2C_Master_Transmit(&hi2c1, (uint16_t)OLED_ADDRESS, &((uint8_t)0X01), 1, 1000);
+//  HAL_I2C_Master_Transmit(&hi2c1, (uint16_t)OLED_ADDRESS, &((uint8_t)0X02), 1, 1000);
+  //   HAL_I2C_Master_Transmit(&hi2c1, (uint16_t)0x78, &Buff_Store, 2, 1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,7 +116,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	HAL_GPIO_TogglePin(LED_LINK_GPIO_Port, LED_LINK_Pin);
+	HAL_Delay(100);
+	// OLED_Power_Control(0);
+	}
   /* USER CODE END 3 */
 }
 
@@ -165,11 +181,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -184,7 +200,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
