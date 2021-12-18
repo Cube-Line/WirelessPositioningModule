@@ -1,0 +1,2 @@
+ec01g_drv.c:16:6:EC_Power_Control	16	static
+ec01g_drv.c:24:6:EC_Init	8	static

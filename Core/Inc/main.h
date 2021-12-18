@@ -71,16 +71,16 @@ void Error_Handler(void);
 #define LED_GPS_GPIO_Port GPIOB
 #define DISP_PWR_Pin GPIO_PIN_8
 #define DISP_PWR_GPIO_Port GPIOA
-#define EC_PWR_Pin GPIO_PIN_11
-#define EC_PWR_GPIO_Port GPIOA
+#define EC_WAKEUP_Pin GPIO_PIN_11
+#define EC_WAKEUP_GPIO_Port GPIOA
 #define KEY_DOWN_Pin GPIO_PIN_5
 #define KEY_DOWN_GPIO_Port GPIOB
 #define KEY_ENTER_Pin GPIO_PIN_6
 #define KEY_ENTER_GPIO_Port GPIOB
 #define KEY_UP_Pin GPIO_PIN_7
 #define KEY_UP_GPIO_Port GPIOB
-#define EC_RST_Pin GPIO_PIN_8
-#define EC_RST_GPIO_Port GPIOB
+#define EC_PWR_Pin GPIO_PIN_8
+#define EC_PWR_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
