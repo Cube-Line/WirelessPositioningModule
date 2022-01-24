@@ -15,10 +15,12 @@
 
 // #define EC_RST
 
+
+
 char *EC_NB_init_data[] = {
-	"AT+ECRST\n",	//复位EC-01G;
-	"AT+CFUN=1\n",	//关闭飞行模式;
-	"AT+CGATT=1\n", //附着网络;
+		"AT+ECRST\n",	//复位EC-01G;
+		"AT+CFUN=1\n",	//关闭飞行模式;
+		"AT+CGATT=1\n", //附着网络;
 };
 
 char *EC_create_mqtt[] = {
@@ -38,10 +40,7 @@ char *EC_sendmessage_mqtt[] = {
 	"AT+ECMTPUB=0,1234,0,1,\"imei/DEVpUB\",\"{\"LONG\":value,\"qos\":value,\"temper\":value,\"hum\":value}\n", //上传数据;
 };
 
-
-
-void
-EC_Power_Control(uint8_t EC_PWR)
+void EC_Power_Control(uint8_t EC_PWR)
 {
 	if (0x01 == EC_PWR)
 		HAL_GPIO_WritePin(EC_PWR_GPIO_Port, EC_PWR_Pin, GPIO_PIN_SET);

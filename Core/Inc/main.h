@@ -46,7 +46,7 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#define COUNTOF(__BUFFER__) (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -82,6 +82,8 @@ void Error_Handler(void);
 #define EC_PWR_Pin GPIO_PIN_8
 #define EC_PWR_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
+
+#define RXBUFFERSIZE 20
 
 /* USER CODE END Private defines */
 
